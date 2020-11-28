@@ -1,0 +1,25 @@
+{
+  "name": "trellotest",
+  "version": "1.0.0",
+  "description": "My Trello tests",
+  "main": "index.js",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "stable": "^0.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/html/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ABormannLive/TrelloTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ABormannLive/TrelloTest/issues"
+  },
+  "homepage": "https://github.com/ABormannLive/TrelloTest#readme"
+}
