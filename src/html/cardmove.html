@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>A Card Move Page</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var cardname = urlParams.get('q');
+            var cardlist = urlParams.get('l');
+            var timestamp = new Date();
+            var date = timestamp.getFullYear()+'-'+(timestamp.getMonth()+1)+'-'+timestamp.getDate();
+         </script>
+        <div><a>Card name   : </a><input name="cardname"  id="cardname" type="text"></input></div>
+        <div><a>In list     : </a><input name="listname"  id="listname" type="text"></input></div>
+        <div><a>Current date: </a><input name="currentdate"  id="currentdate" type="text"></input></div>
+        <script>
+            document.getElementById("cardname").value = cardname;
+            document.getElementById("listname").value = cardlist;
+            document.getElementById("currentdate").value = date;
+        </script>
+    </body>
+</html>
