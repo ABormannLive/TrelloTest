@@ -36,7 +36,7 @@ window.TrelloPowerUp.initialize({
       icon: "./logocmdbuild.png", // Must be a gray icon, colored icons not allowed.
       content: {
         type: 'iframe',
-        url: t.signUrl('./section.html'),
+        url: t.signUrl('./section.html?q=a card'),
         height: 230, // Max height is 1500.
         action: {
           text: 'My Action',
@@ -56,5 +56,61 @@ window.TrelloPowerUp.initialize({
         },
       }
     };
+
+    t.card('name').then(function(cardname) {
+      return {
+        title: 'CMDBuild Data',
+        icon: "./logocmdbuild.png", // Must be a gray icon, colored icons not allowed.
+        content: {
+          type: 'iframe',
+          url: t.signUrl('./section.html?q=' + cardname),
+          height: 230, // Max height is 1500.
+          action: {
+            text: 'My Action',
+            callback: (t) => t.popup({
+              title: 'Some actions',
+              items: [{
+                text: 'Choose Time',
+                callback: function (t, opts) { }
+              }, {
+                text: 'In 1 hour',
+                callback: function (t, opts) {  }
+              }, {
+                text: 'In 2 hours',
+                callback: function (t, opts) {  }
+              }]
+            }),
+          },
+        }
+      };
+  
+    }, function() {
+      return {
+        title: 'CMDBuild Data',
+        icon: "./logocmdbuild.png", // Must be a gray icon, colored icons not allowed.
+        content: {
+          type: 'iframe',
+          url: t.signUrl('./section.html?q=cardnotfound'),
+          height: 230, // Max height is 1500.
+          action: {
+            text: 'My Action',
+            callback: (t) => t.popup({
+              title: 'Some actions',
+              items: [{
+                text: 'Choose Time',
+                callback: function (t, opts) { }
+              }, {
+                text: 'In 1 hour',
+                callback: function (t, opts) {  }
+              }, {
+                text: 'In 2 hours',
+                callback: function (t, opts) {  }
+              }]
+            }),
+          },
+        }
+      };
+
+    })
   }
  });

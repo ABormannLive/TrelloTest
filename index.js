@@ -24,7 +24,8 @@ const app = https.createServer(options, (request, response) => {
         response.end();
         break;  
     case '/index.html':  
-          fs.readFile('src/html' + path, function(error, data) {  
+            var reqtmp = request;
+            fs.readFile('src/html' + path, function(error, data) {  
               if (error) {  
                   response.writeHead(404);  
                   response.write(error);  
@@ -79,7 +80,8 @@ const app = https.createServer(options, (request, response) => {
           break;  
           
           case '/section.html':  
-          fs.readFile('src/html' + path, function(error, data) {  
+            var reqtmp = request;
+            fs.readFile('src/html' + path, function(error, data) {  
               if (error) {  
                   response.writeHead(404);  
                   response.write(error);  
@@ -141,7 +143,24 @@ const app = https.createServer(options, (request, response) => {
               }  
           });  
           break;  
-      default:  
+
+      case '/src/js/utility.js':  
+          fs.readFile('src/js/utility.js', function(error, data) {  
+              if (error) {  
+                  response.writeHead(404);  
+                  response.write(error);  
+                  response.end();  
+              } else {  
+                  response.writeHead(200, {  
+                      'Content-Type': 'application/javascript'  
+                  });  
+                  response.write(data);  
+                  response.end();  
+              }  
+          });  
+          break;  
+
+        default:  
           response.writeHead(404);  
           response.write("opps this doesn't exist - 404");  
           response.end();  

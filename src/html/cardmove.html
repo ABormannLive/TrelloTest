@@ -4,20 +4,25 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <script src="https://p.trellocdn.com/power-up.min.js" crossorigin="anonymous"></script>
+        <script src="/src/js/utility.js"></script>
         <script>
             var urlParams = new URLSearchParams(window.location.search);
             var cardname = urlParams.get('q');
             var cardlist = urlParams.get('l');
             var timestamp = new Date();
-            var date = timestamp.getFullYear()+'-'+(timestamp.getMonth()+1)+'-'+timestamp.getDate();
-         </script>
-        <div><a>Card name   : </a><input name="cardname"  id="cardname" type="text"></input></div>
+            var date = timestamp.getFullYear()+'-' + pad((timestamp.getMonth()+1),2) + '-' + pad(timestamp.getDate(),2) + ' ' + pad(timestamp.getHours(),2) + ':'  + pad(timestamp.getMinutes(),2) + ':' + pad(timestamp.getSeconds(),2);
+        </script>
+        <!-- <div><a>Card name   : </a><input name="cardname"  id="cardname" type="text"></input></div>
         <div><a>In list     : </a><input name="listname"  id="listname" type="text"></input></div>
-        <div><a>Current date: </a><input name="currentdate"  id="currentdate" type="text"></input></div>
+        <div><a>Current date: </a><input name="currentdate"  id="currentdate" type="text"></input></div> -->
         <script>
-            document.getElementById("cardname").value = cardname;
-            document.getElementById("listname").value = cardlist;
-            document.getElementById("currentdate").value = date;
+            // document.getElementById("cardname").value = cardname;
+            // document.getElementById("listname").value = cardlist;
+            // document.getElementById("currentdate").value = date;
+            var context = t.getContext();
+            console.log(JSON.stringify(context, null, 2));
+
         </script>
     </body>
 </html>
